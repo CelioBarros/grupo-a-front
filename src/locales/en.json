@@ -4,5 +4,21 @@
     "user": "Students",
     "change-theme": "Change Theme",
     "change-language": "Change language"
+  },
+  "components": {
+    "user": {
+      "data-table": {
+        "tooltip": {
+          "edit": "Edit",
+          "delete": "Remove"
+        },
+        "header": {
+          "name": "Name",
+          "cpf": "CPF",
+          "ra": "Academic Record",
+          "actions": "Actions"
+        }
+      }
+    }
   }
 }
