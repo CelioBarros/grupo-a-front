@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <v-app id="auth-app">
-      <v-navigation-drawer permanent>
+      <v-navigation-drawer permanent fixed app floating>
         <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="title">
-              Application
+          <v-list-item-content class="text-center">
+            <v-list-item-title>
+              <img id="logo" src="@/assets/logo-grupoa.webp" alt="logo" />
             </v-list-item-title>
             <v-list-item-subtitle>
-              subtext
+              {{ $t("navigation-item.home") }}
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -31,14 +31,39 @@
             </v-list-item-content>
           </v-list-item>
         </v-list>
+        <template v-slot:append>
+          <v-list>
+            <v-list-item @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+              <v-list-item-action>
+                <v-icon>mdi-brightness-6</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title
+                  v-text="$t('navigation-item.change-theme')"
+                />
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title
+                v-text="$t('navigation-item.change-language')"
+              />
+              <v-list-item-action>
+                <v-select
+                  v-model="$i18n.locale"
+                  :items="langs"
+                  @change="changeLang"
+                />
+              </v-list-item-action>
+            </v-list-item>
+          </v-list>
+        </template>
       </v-navigation-drawer>
-      <v-app-bar id="asus-top-bar" elevation="0" fixed app>
-        <v-toolbar-title>
-          <img src="@/assets/logo-grupoa.webp" alt="logo" class="pt-2" />
-        </v-toolbar-title>
-      </v-app-bar>
+      <v-container>
+        <v-main>
+          <router-view />
+        </v-main>
+      </v-container>
     </v-app>
-    <router-view />
   </div>
 </template>
 
@@ -48,17 +73,24 @@ export default {
     return {
       menuItems: [
         {
-          icon: "mdi-home",
-          title: this.$t("navigation-item.home")
-        },
-        {
           icon: "mdi-account-cog",
           title: this.$t("navigation-item.user"),
           to: "/"
         }
-      ]
+      ],
+      langs: ["pt", "en"]
     };
+  },
+  methods: {
+    changeLang(lang) {
+      this.$i18n.locale = lang;
+      this.$vuetify.lang.current = lang;
+    }
   }
 };
 </script>
-<style></style>
+<style lang="scss" scoped>
+#logo {
+  height: 65px;
+}
+</style>

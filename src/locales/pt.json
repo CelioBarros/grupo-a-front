@@ -1,6 +1,8 @@
 {
   "navigation-item": {
     "home": "Módulo academico",
-    "user": "Alunos"
+    "user": "Alunos",
+    "change-theme": "Alterar tema",
+    "change-language": "Alterar lingua"
   }
 }

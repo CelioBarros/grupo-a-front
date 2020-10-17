@@ -1,6 +1,8 @@
 {
   "navigation-item": {
     "home": "Academic Module",
-    "user": "Students"
+    "user": "Students",
+    "change-theme": "Change Theme",
+    "change-language": "Change language"
   }
 }
