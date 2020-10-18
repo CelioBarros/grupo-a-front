@@ -10,6 +10,10 @@
         <span id="add-modal-title" class="headline">
           {{ $t("components.user.register-dialog.title") }}
         </span>
+        <v-spacer />
+        <v-btn id="close-btn" icon @click="close">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
       </v-card-title>
       <v-form id="register-dialog-form" ref="form" v-model="valid">
         <v-card-text>
@@ -150,6 +154,7 @@ export default {
       this.$emit("close-dialog");
       this.$nextTick(() => {
         this.editedItem = Object.assign({}, this.item);
+        this.$refs.form.resetValidation();
       });
     }
   }
