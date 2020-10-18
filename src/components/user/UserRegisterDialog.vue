@@ -55,6 +55,7 @@
                   v-model="editedItem.ra"
                   outlined
                   :rules="[rules.required, rules.integerValidation]"
+                  :disabled="edition"
                 >
                   <template #label>
                     {{ $t("components.user.register-dialog.fields.ra") }}
@@ -70,6 +71,7 @@
                   v-model="editedItem.cpf"
                   outlined
                   :rules="[rules.required]"
+                  :disabled="edition"
                 >
                   <template #label>
                     {{ $t("components.user.register-dialog.fields.cpf") }}
@@ -102,7 +104,6 @@ import { mapActions } from "vuex";
 
 export default {
   name: "UserRegisterDialog",
-
   props: {
     item: {
       type: Object,
@@ -121,9 +122,19 @@ export default {
       default: false
     }
   },
+  watch: {
+    item: {
+      handler(value) {
+        if (value.ra) this.edition = true;
+        this.editedItem = Object.assign({}, this.item);
+      },
+      deep: true
+    }
+  },
   data() {
     return {
       valid: false,
+      edition: false,
       loading: false,
       editedItem: {},
       rules: {
@@ -158,6 +169,7 @@ export default {
       this.$nextTick(() => {
         this.editedItem = Object.assign({}, this.item);
         this.$refs.form.resetValidation();
+        this.edition = false;
       });
     }
   }

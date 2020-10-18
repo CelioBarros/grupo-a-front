@@ -2,8 +2,12 @@
   <v-card>
     <user-register-dialog
       :dialog="dialog"
+      :item="userSelected"
       @saved="loadUsers"
-      @close-dialog="dialog = false"
+      @close-dialog="
+        dialog = false;
+        userSelected = {};
+      "
     />
     <v-card-title>
       <v-text-field
@@ -159,6 +163,7 @@ export default {
     }, 500),
     editUser(item) {
       this.userSelected = item;
+      this.dialog = true;
     },
     removeUser(item) {
       if (
