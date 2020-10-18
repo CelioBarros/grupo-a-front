@@ -19,7 +19,8 @@
           "actions": "Actions"
         },
         "search": "Search by name",
-        "add-button": "Register Student"
+        "add-button": "Register Student",
+        "delete-student": "Are you shure you want to remove student {ra}?"
       }
     }
   }

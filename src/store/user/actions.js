@@ -7,16 +7,16 @@ export default {
   getUsersList(context) {
     return Vue.axios.get(`users/list`);
   },
-  getUserById(context, id) {
-    return Vue.axios.get(`users/${id}`);
+  getUserById(context, ra) {
+    return Vue.axios.get(`users/${ra}`);
   },
   saveUser(context, user) {
     return Vue.axios.post(`users/`, user);
   },
   editUser(context, user) {
-    return Vue.axios.put(`users/${user.id}`, user);
+    return Vue.axios.put(`users/${user.ra}`, user);
   },
-  deleteUser(context, id) {
-    return Vue.axios.delete(`users/${id}`);
+  deleteUser(context, ra) {
+    return Vue.axios.delete(`users/${ra}`);
   }
 };

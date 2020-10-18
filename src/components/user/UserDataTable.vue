@@ -33,7 +33,7 @@
         <div class="d-inline-flex">
           <tooltip>
             <v-btn
-              :id="'btn-edit-' + item.id"
+              :id="'btn-edit-' + item.ra"
               slot="button"
               nuxt
               icon
@@ -47,11 +47,11 @@
           </tooltip>
           <tooltip>
             <v-btn
-              :id="'btn-delete-' + item.id"
+              :id="'btn-delete-' + item.ra"
               slot="button"
               nuxt
               icon
-              @click="deleteUser(item)"
+              @click="removeUser(item)"
             >
               <v-icon small>mdi-delete</v-icon>
             </v-btn>
@@ -122,7 +122,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("user", ["getUsers"]),
+    ...mapActions("user", ["getUsers", "deleteUser"]),
     loadUsers() {
       this.loading = true;
       this.users = [];
@@ -151,8 +151,14 @@ export default {
     editUser(item) {
       this.userSelected = item;
     },
-    deleteUser(item) {
-      this.userSelected = item;
+    removeUser(item) {
+      if (
+        confirm(
+          this.$t("components.user.data-table.delete-student", { ra: item.ra })
+        )
+      ) {
+        this.deleteUser(item.ra).then(() => this.loadUsers());
+      }
     }
   }
 };

@@ -19,7 +19,8 @@
           "actions": "Ações"
         },
         "search": "Buscar por nome",
-        "add-button": "Cadastrar Aluno"
+        "add-button": "Cadastrar Aluno",
+        "delete-student": "Tem certeza que deseja remover o aluno {ra}?"
       }
     }
   }
