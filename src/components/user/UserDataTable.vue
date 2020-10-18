@@ -1,5 +1,10 @@
 <template>
   <v-card>
+    <user-register-dialog
+      :dialog="dialog"
+      @saved="loadUsers"
+      @close-dialog="dialog = false"
+    />
     <v-card-title>
       <v-text-field
         id="search-by-name"
@@ -16,6 +21,7 @@
         color="blue-grey"
         class="white--text"
         :loading="loading"
+        @click="dialog = true"
       >
         {{ $t("components.user.data-table.add-button") }}
       </v-btn>
@@ -69,14 +75,17 @@
 import { mapActions } from "vuex";
 import _ from "lodash";
 import Tooltip from "@/components/utils/Tooltip";
+import UserRegisterDialog from "@/components/user/UserRegisterDialog";
 
 export default {
   name: "UserDataTable",
   components: {
-    Tooltip
+    Tooltip,
+    UserRegisterDialog
   },
   data() {
     return {
+      dialog: false,
       users: [],
       userSelected: {},
       search: "",

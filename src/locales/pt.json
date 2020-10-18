@@ -21,6 +21,22 @@
         "search": "Buscar por nome",
         "add-button": "Cadastrar Aluno",
         "delete-student": "Tem certeza que deseja remover o aluno {ra}?"
+      },
+      "register-dialog": {
+        "title": "Cadastro de Aluno",
+        "fields": {
+          "name": "Nome",
+          "cpf": "CPF",
+          "ra": "Registro Acadêmico",
+          "email": "Email"
+        },
+        "buttons": {
+          "cancel": "Cancelar",
+          "save": "Salvar"
+        },
+        "rules": {
+          "required": "Campo obrigatório"
+        }
       }
     }
   }

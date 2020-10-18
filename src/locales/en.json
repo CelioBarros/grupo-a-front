@@ -21,6 +21,22 @@
         "search": "Search by name",
         "add-button": "Register Student",
         "delete-student": "Are you shure you want to remove student {ra}?"
+      },
+      "register-dialog": {
+        "title": "Register Student",
+        "fields": {
+          "name": "Name",
+          "cpf": "CPF",
+          "ra": "Academic Record",
+          "email": "Email"
+        },
+        "buttons": {
+          "cancel": "Cancel",
+          "save": "Save"
+        },
+        "rules": {
+          "required": "Required field"
+        }
       }
     }
   }
