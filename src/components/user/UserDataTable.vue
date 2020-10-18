@@ -2,14 +2,21 @@
   <v-card>
     <v-card-title>
       <v-text-field
+        id="search-by-name"
         v-model="search"
         append-icon="mdi-magnify"
         :label="$t('components.user.data-table.search')"
+        :loading="loading"
         single-line
         hide-details
       ></v-text-field>
       <v-spacer></v-spacer>
-      <v-btn>
+      <v-btn
+        id="add-student-button"
+        color="blue-grey"
+        class="white--text"
+        :loading="loading"
+      >
         {{ $t("components.user.data-table.add-button") }}
       </v-btn>
     </v-card-title>
@@ -19,6 +26,7 @@
       :items="users"
       :options.sync="options"
       :server-items-length="totalItems"
+      :loading="loading"
       class="elevation-0 transparent"
     >
       <template v-slot:[`item.actions`]="{ item }">
