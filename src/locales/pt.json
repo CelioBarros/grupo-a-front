@@ -35,7 +35,8 @@
           "save": "Salvar"
         },
         "rules": {
-          "required": "Campo obrigatório"
+          "required": "Campo obrigatório",
+          "integer-validation": "Campo numérico"
         }
       }
     }

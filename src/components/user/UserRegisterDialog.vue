@@ -54,7 +54,7 @@
                   id="ra-field"
                   v-model="editedItem.ra"
                   outlined
-                  :rules="[rules.required]"
+                  :rules="[rules.required, rules.integerValidation]"
                 >
                   <template #label>
                     {{ $t("components.user.register-dialog.fields.ra") }}
@@ -128,7 +128,10 @@ export default {
       editedItem: {},
       rules: {
         required: value =>
-          !!value || this.$t("components.user.register-dialog.rules.required")
+          !!value || this.$t("components.user.register-dialog.rules.required"),
+        integerValidation: value =>
+          (Number.isInteger(Number(value)) && Number(value) >= 0) ||
+          this.$t("components.user.register-dialog.rules.integer-validation")
       }
     };
   },

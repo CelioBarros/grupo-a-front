@@ -35,7 +35,8 @@
           "save": "Save"
         },
         "rules": {
-          "required": "Required field"
+          "required": "Required field",
+          "integer-validation": "Numeric field"
         }
       }
     }
