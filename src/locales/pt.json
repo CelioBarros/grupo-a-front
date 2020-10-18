@@ -17,7 +17,9 @@
           "cpf": "CPF",
           "ra": "Registro Acadêmico",
           "actions": "Ações"
-        }
+        },
+        "search": "Buscar por nome",
+        "add-button": "Cadastrar Aluno"
       }
     }
   }
