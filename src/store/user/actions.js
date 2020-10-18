@@ -4,12 +4,6 @@ export default {
   getUsers(context, params) {
     return Vue.axios.get(`users/`, { params });
   },
-  getUsersList(context) {
-    return Vue.axios.get(`users/list`);
-  },
-  getUserById(context, ra) {
-    return Vue.axios.get(`users/${ra}`);
-  },
   saveUser(context, user) {
     return Vue.axios.post(`users/`, user);
   },
