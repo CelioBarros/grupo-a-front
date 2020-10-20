@@ -19,7 +19,17 @@
       </template>
     </v-snackbar>
 
-    <v-card-title>
+    <v-card-title
+      :class="[
+        'justify-center grey',
+        $vuetify.theme.dark ? 'darken-2' : 'lighten-2'
+      ]"
+    >
+      <span id="add-modal-title" class="headline">
+        {{ $t("components.user.data-table.title") }}
+      </span>
+    </v-card-title>
+    <v-card-actions>
       <v-text-field
         id="search-by-name"
         v-model="search"
@@ -39,7 +49,7 @@
       >
         {{ $t("components.user.data-table.add-button") }}
       </v-btn>
-    </v-card-title>
+    </v-card-actions>
     <v-data-table
       id="application-table"
       :headers="headers"

@@ -6,7 +6,9 @@
     @click:outside="close"
   >
     <v-card color="bgCard">
-      <v-card-title>
+      <v-card-title
+        :class="['grey', $vuetify.theme.dark ? 'darken-2' : 'lighten-2']"
+      >
         <span id="add-modal-title" class="headline">
           {{ $t("components.user.register-dialog.title") }}
         </span>
