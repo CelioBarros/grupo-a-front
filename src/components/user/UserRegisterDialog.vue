@@ -71,7 +71,6 @@
                   v-model="editedItem.cpf"
                   outlined
                   :rules="[rules.required]"
-                  :disabled="edition"
                 >
                   <template #label>
                     {{ $t("components.user.register-dialog.fields.cpf") }}
@@ -154,7 +153,7 @@ export default {
     async save() {
       if (this.valid) {
         this.loading = true;
-        this.editedItem.id === undefined
+        !this.edition
           ? await this.saveUser(this.editedItem)
           : await this.editUser(this.editedItem);
         this.loading = false;
