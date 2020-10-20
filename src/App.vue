@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-app id="auth-app">
-      <v-navigation-drawer permanent fixed app floating>
+      <v-navigation-drawer permanent fixed app>
         <v-list-item>
           <v-list-item-content class="text-center">
             <v-list-item-title>
