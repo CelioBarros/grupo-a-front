@@ -71,6 +71,7 @@
                   v-model="editedItem.cpf"
                   outlined
                   :rules="[rules.required]"
+                  :disabled="edition"
                 >
                   <template #label>
                     {{ $t("components.user.register-dialog.fields.cpf") }}
