@@ -20,7 +20,8 @@
         },
         "search": "Search by name",
         "add-button": "Register Student",
-        "delete-student": "Are you shure you want to remove student {ra}?"
+        "delete-student": "Are you shure you want to remove student {ra}?",
+        "saved": "Sucefully save"
       },
       "register-dialog": {
         "title": "Register Student",

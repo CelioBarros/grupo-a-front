@@ -3,12 +3,22 @@
     <user-register-dialog
       :dialog="dialog"
       :item="userSelected"
-      @saved="loadUsers"
+      @saved="savedUser"
       @close-dialog="
         dialog = false;
         userSelected = {};
       "
     />
+    <v-snackbar top v-model="snackbar" :timeout="timeout" color="success">
+      {{ text }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn color="white" icon v-bind="attrs" @click="snackbar = false">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </template>
+    </v-snackbar>
+
     <v-card-title>
       <v-text-field
         id="search-by-name"
@@ -120,7 +130,10 @@ export default {
           align: "right",
           value: "actions"
         }
-      ]
+      ],
+      snackbar: false,
+      text: "",
+      timeout: 2000
     };
   },
   watch: {
@@ -173,6 +186,11 @@ export default {
       ) {
         this.deleteUser(item.ra).then(() => this.loadUsers());
       }
+    },
+    savedUser() {
+      this.loadUsers();
+      this.text = this.$t("components.user.data-table.saved");
+      this.snackbar = true;
     }
   }
 };

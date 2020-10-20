@@ -20,7 +20,8 @@
         },
         "search": "Buscar por nome",
         "add-button": "Cadastrar Aluno",
-        "delete-student": "Tem certeza que deseja remover o aluno {ra}?"
+        "delete-student": "Tem certeza que deseja remover o aluno {ra}?",
+        "saved": "Salvo com sucesso"
       },
       "register-dialog": {
         "title": "Cadastro de Aluno",
