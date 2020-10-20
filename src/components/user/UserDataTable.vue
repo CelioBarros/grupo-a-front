@@ -107,21 +107,9 @@ export default {
     Tooltip,
     UserRegisterDialog
   },
-  data() {
-    return {
-      dialog: false,
-      users: [],
-      userSelected: {},
-      search: "",
-      options: {
-        size: 10,
-        page: 1,
-        sortBy: ["name"],
-        sortDesc: [false]
-      },
-      totalItems: 0,
-      loading: false,
-      headers: [
+  computed: {
+    headers() {
+      return [
         {
           text: this.$t("components.user.data-table.header.ra"),
           value: "ra"
@@ -140,7 +128,23 @@ export default {
           align: "right",
           value: "actions"
         }
-      ],
+      ];
+    }
+  },
+  data() {
+    return {
+      dialog: false,
+      users: [],
+      userSelected: {},
+      search: "",
+      options: {
+        size: 10,
+        page: 1,
+        sortBy: ["name"],
+        sortDesc: [false]
+      },
+      totalItems: 0,
+      loading: false,
       snackbar: false,
       text: "",
       timeout: 2000

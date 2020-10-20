@@ -69,15 +69,19 @@
 
 <script>
 export default {
-  data() {
-    return {
-      menuItems: [
+  computed: {
+    menuItems() {
+      return [
         {
           icon: "mdi-account-cog",
           title: this.$t("navigation-item.user"),
           to: "/"
         }
-      ],
+      ];
+    }
+  },
+  data() {
+    return {
       langs: ["pt", "en"]
     };
   },
