@@ -88,7 +88,6 @@ export default {
   methods: {
     changeLang(lang) {
       this.$i18n.locale = lang;
-      this.$vuetify.lang.current = lang;
     }
   }
 };
