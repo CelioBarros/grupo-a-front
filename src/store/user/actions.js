@@ -1,16 +1,16 @@
-import Vue from "vue";
+import axios from "@/axios";
 
 export default {
   getUsers(context, params) {
-    return Vue.axios.get(`users`, { params });
+    return axios.get(`users`, { params });
   },
   saveUser(context, user) {
-    return Vue.axios.post(`users`, user);
+    return axios.post(`users`, user);
   },
   editUser(context, user) {
-    return Vue.axios.put(`users/${user.ra}`, user);
+    return axios.put(`users/${user.ra}`, user);
   },
   deleteUser(context, ra) {
-    return Vue.axios.delete(`users/${ra}`);
+    return axios.delete(`users/${ra}`);
   }
 };
