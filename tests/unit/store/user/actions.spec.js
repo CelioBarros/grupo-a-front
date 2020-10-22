@@ -22,7 +22,7 @@ describe("Actions: User", () => {
       userActions.getUsers({}, param).then(resp);
     });
 
-    it("should be a GET method", done => {
+    test("should be a GET method", done => {
       moxios.wait(() => {
         let request = moxios.requests.mostRecent();
         request
@@ -37,7 +37,7 @@ describe("Actions: User", () => {
       });
     });
 
-    it("should call with correct url", done => {
+    test("should call with correct url", done => {
       moxios.wait(() => {
         let request = moxios.requests.mostRecent();
         request
@@ -61,7 +61,7 @@ describe("Actions: User", () => {
       userActions.saveUser({}, param).then(resp);
     });
 
-    it("should be a POST method", done => {
+    test("should be a POST method", done => {
       moxios.wait(() => {
         let request = moxios.requests.mostRecent();
         request
@@ -76,7 +76,7 @@ describe("Actions: User", () => {
       });
     });
 
-    it("should call with correct url", done => {
+    test("should call with correct url", done => {
       moxios.wait(() => {
         let request = moxios.requests.mostRecent();
         request
@@ -100,7 +100,7 @@ describe("Actions: User", () => {
       userActions.editUser({}, param).then(resp);
     });
 
-    it("should be a PUT method", done => {
+    test("should be a PUT method", done => {
       moxios.wait(() => {
         let request = moxios.requests.mostRecent();
         request
@@ -115,7 +115,7 @@ describe("Actions: User", () => {
       });
     });
 
-    it("should call with correct url", done => {
+    test("should call with correct url", done => {
       moxios.wait(() => {
         let request = moxios.requests.mostRecent();
         request
@@ -139,7 +139,7 @@ describe("Actions: User", () => {
       userActions.deleteUser({}, ra).then(resp);
     });
 
-    it("should be a DELETE method", done => {
+    test("should be a DELETE method", done => {
       moxios.wait(() => {
         let request = moxios.requests.mostRecent();
         request
@@ -154,7 +154,7 @@ describe("Actions: User", () => {
       });
     });
 
-    it("should call with correct url", done => {
+    test("should call with correct url", done => {
       moxios.wait(() => {
         let request = moxios.requests.mostRecent();
         request
