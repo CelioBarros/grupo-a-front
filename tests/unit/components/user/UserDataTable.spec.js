@@ -36,7 +36,7 @@ describe("UserDataTable Component", () => {
       }
     }
   };
-
+  const item = { ra: 1 };
   let wrapper;
 
   beforeEach(() => {
@@ -74,7 +74,7 @@ describe("UserDataTable Component", () => {
   });
 
   describe("methods", () => {
-    describe("#call savedUser", () => {
+    describe("#savedUser", () => {
       test("should call loadUsers", async () => {
         const loadUsersSpy = jest.spyOn(wrapper.vm, "loadUsers");
         expect(loadUsersSpy).not.toHaveBeenCalled();
@@ -103,9 +103,8 @@ describe("UserDataTable Component", () => {
         expect(wrapper.vm.snackbar).toBeTruthy();
       });
     });
-    describe("#call editUser", () => {
+    describe("# editUser", () => {
       test("should change userSelected", () => {
-        const item = { ra: 1 };
         wrapper.vm.userSelected = {};
         expect(wrapper.vm.userSelected).not.toBe(item);
 
@@ -119,6 +118,26 @@ describe("UserDataTable Component", () => {
         wrapper.vm.editUser({});
 
         expect(wrapper.vm.dialog).toBeTruthy();
+      });
+    });
+
+    describe("#removeUser", () => {
+      let confirmSpy;
+      beforeAll(() => {
+        confirmSpy = jest.spyOn(window, "confirm");
+        confirmSpy.mockImplementation(jest.fn(() => true));
+      });
+      afterAll(() => confirmSpy.mockRestore());
+
+      test("call request deleteUser", async () => {
+        const deleteUserSpy = jest.spyOn(wrapper.vm, "deleteUser");
+
+        expect(deleteUserSpy).not.toHaveBeenCalled();
+
+        wrapper.vm.removeUser(item);
+        await flushPromises();
+
+        expect(deleteUserSpy).toHaveBeenCalled();
       });
     });
   });
