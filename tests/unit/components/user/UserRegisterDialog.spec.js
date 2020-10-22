@@ -46,7 +46,7 @@ describe("UserRegisterDialog Component", () => {
     jest.clearAllMocks();
   });
 
-  it("should register modal exists", () => {
+  test("should register modal exists", () => {
     expect(wrapper.find("vdialog-stub").exists()).toBeTruthy();
   });
 
@@ -56,7 +56,7 @@ describe("UserRegisterDialog Component", () => {
       wrapper.vm.$refs.form.resetValidation = jest.fn();
     });
     describe("#close", () => {
-      it("should emit close-dialog", async () => {
+      test("should emit close-dialog", async () => {
         expect(wrapper.emitted().closeDialog).toBeFalsy();
 
         wrapper.vm.close();
@@ -65,7 +65,7 @@ describe("UserRegisterDialog Component", () => {
 
         expect(wrapper.emitted().closeDialog).toBeFalsy();
       });
-      it("should call form resetValidation", async () => {
+      test("should call form resetValidation", async () => {
         expect(wrapper.vm.$refs.form.resetValidation).not.toHaveBeenCalled();
 
         wrapper.vm.close();
@@ -81,7 +81,7 @@ describe("UserRegisterDialog Component", () => {
         beforeEach(() => {
           wrapper.vm.valid = true;
         });
-        it("should see loading", async () => {
+        test("should see loading", async () => {
           expect(wrapper.vm.loading).toBeFalsy();
 
           wrapper.vm.save();
@@ -96,7 +96,7 @@ describe("UserRegisterDialog Component", () => {
           beforeEach(() => {
             wrapper.vm.edition = false;
           });
-          it("should call saveUser function", async () => {
+          test("should call saveUser function", async () => {
             const saveUserSpy = jest.spyOn(wrapper.vm, "saveUser");
             expect(saveUserSpy).not.toHaveBeenCalled();
             wrapper.vm.save();
@@ -110,7 +110,7 @@ describe("UserRegisterDialog Component", () => {
           beforeEach(() => {
             wrapper.vm.edition = true;
           });
-          it("should call editUser function", async () => {
+          test("should call editUser function", async () => {
             const editUserSpy = jest.spyOn(wrapper.vm, "editUser");
             expect(editUserSpy).not.toHaveBeenCalled();
             wrapper.vm.save();
@@ -120,7 +120,7 @@ describe("UserRegisterDialog Component", () => {
             expect(editUserSpy).toHaveBeenCalled();
           });
         });
-        it("should emit saved", async () => {
+        test("should emit saved", async () => {
           expect(wrapper.emitted().saved).toBeFalsy();
 
           wrapper.vm.save();
@@ -135,7 +135,7 @@ describe("UserRegisterDialog Component", () => {
           wrapper.vm.valid = false;
           wrapper.vm.$refs.form.validate = jest.fn();
         });
-        it("should call form validation", () => {
+        test("should call form validation", () => {
           expect(wrapper.vm.$refs.form.validate).not.toHaveBeenCalled();
 
           wrapper.vm.save();
