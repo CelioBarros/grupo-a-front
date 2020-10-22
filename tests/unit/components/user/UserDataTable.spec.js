@@ -140,6 +140,28 @@ describe("UserDataTable Component", () => {
         expect(deleteUserSpy).toHaveBeenCalled();
       });
     });
+
+    describe("#loadUsers", () => {
+      test("call request getUsers", async () => {
+        const getUsersSpy = jest.spyOn(wrapper.vm, "getUsers");
+        expect(getUsersSpy).not.toHaveBeenCalled();
+
+        wrapper.vm.loadUsers();
+        await flushPromises();
+
+        expect(getUsersSpy).toHaveBeenCalled();
+      });
+      it("should change loading", async () => {
+        expect(wrapper.vm.loading).toBeFalsy();
+
+        wrapper.vm.loadUsers();
+        expect(wrapper.vm.loading).toBeTruthy();
+
+        await flushPromises();
+
+        expect(wrapper.vm.loading).toBeFalsy();
+      });
+    });
   });
 });
 
