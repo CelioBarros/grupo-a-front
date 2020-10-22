@@ -103,6 +103,24 @@ describe("UserDataTable Component", () => {
         expect(wrapper.vm.snackbar).toBeTruthy();
       });
     });
+    describe("#call editUser", () => {
+      test("should change userSelected", () => {
+        const item = { ra: 1 };
+        wrapper.vm.userSelected = {};
+        expect(wrapper.vm.userSelected).not.toBe(item);
+
+        wrapper.vm.editUser(item);
+        expect(wrapper.vm.userSelected).toBe(item);
+      });
+      test("should change dialog", () => {
+        wrapper.vm.dialog = false;
+        expect(wrapper.vm.dialog).toBeFalsy();
+
+        wrapper.vm.editUser({});
+
+        expect(wrapper.vm.dialog).toBeTruthy();
+      });
+    });
   });
 });
 
